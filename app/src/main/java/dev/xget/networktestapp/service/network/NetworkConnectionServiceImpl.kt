@@ -33,7 +33,7 @@ class NetworkConnectionServiceImpl(
                     connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
 
                 trySend(
-                    NetworkStatus.Connected()
+                    NetworkStatus.Connected
                 )
             }
 

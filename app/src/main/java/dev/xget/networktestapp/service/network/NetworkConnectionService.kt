@@ -8,10 +8,7 @@ interface NetworkConnectionService {
 }
 
 sealed class NetworkStatus {
-    data class Connected(
-        val networkUploadSpeed: Int = 0,
-        val networkDownloadSpeed: Int = 0
-    ) : NetworkStatus()
+    data object Connected : NetworkStatus()
 
     data object Disconnected : NetworkStatus()
     data object Unknown : NetworkStatus()
