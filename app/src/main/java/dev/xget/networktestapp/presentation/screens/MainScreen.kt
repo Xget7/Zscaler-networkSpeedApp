@@ -267,7 +267,10 @@ fun NetworkMainScreen(
 
         Button(
             onClick = onStartSpeedTest,
-            enabled = networkStatus.value is NetworkStatus.Connected && (networkSpeedTestResult.value is NetworkTestResult.Testing && !(networkSpeedTestResult.value as NetworkTestResult.Testing).initialized),
+            enabled = networkStatus.value is NetworkStatus.Connected &&
+                    (networkSpeedTestResult.value is NetworkTestResult.Testing &&
+                            (!(networkSpeedTestResult.value as NetworkTestResult.Testing).initialized ||
+                                    (networkSpeedTestResult.value as NetworkTestResult.Testing).finished)),
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
@@ -278,6 +281,4 @@ fun NetworkMainScreen(
             Text(stringResource(id = R.string.start_speed_test))
         }
     }
-
-
 }
